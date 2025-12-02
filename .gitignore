@@ -52,3 +52,27 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+## Visual Studio Files (IDE Specific)
+# Local configuration files
+.vs/
+*.user
+*.userprefs
+*.suo
+*.[Ss]ervicesHub
+
+## .NET MAUI / Xamarin Specific
+# Android build artifacts
+*.apk
+*.aab
+aapt.exe
+
+# iOS/macOS build artifacts
+*.ipa
+*.xcarchive/
+*.app/
+*.dSYM/
+
+# Windows/UWP build artifacts
+AppPackages/
+BundleArtifacts/
