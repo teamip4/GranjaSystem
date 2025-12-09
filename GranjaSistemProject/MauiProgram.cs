@@ -1,4 +1,5 @@
 ﻿using GrajaSistemProject.Data;
+using GranjaSistemProject.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -26,6 +27,8 @@ namespace GranjaSistemProject
 
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlite($"Data Source={databasePath}"));
+
+            builder.Services.AddScoped<UserRepository>();
 
             return builder.Build();
         }
