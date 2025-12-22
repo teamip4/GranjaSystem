@@ -13,5 +13,6 @@
         <Label x:Name="LabelCity" Text="City" />
         <Label x:Name="LabelAddress" Text="Address" />
         <Label x:Name="LabelPhone" Text="Phone" />
+        <Button Text="Editar dados" Clicked="UpdateUser" />
     </VerticalStackLayout>
 </ContentPage>
