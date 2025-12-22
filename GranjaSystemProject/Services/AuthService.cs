@@ -46,6 +46,20 @@ public class AuthService
             return (false, $"Erro ao salvar: {ex.Message}");
         }
     }
+    public async Task<(bool Success, string Message)> UpdateUserAsync(User updateUser)
+    {
+        try
+        {
+            _context.Users.Update(updateUser);
+            await _context.SaveChangesAsync();
+            this.CurrentUser = updateUser;
+            return (true, "Usuário cadastrado com sucesso!");
+        }
+        catch (Exception ex)
+        {
+            return (false, $"Erro ao salvar: {ex.Message}");
+        }
+    }
     public async Task<User?> AuthenticateUser(string email, string password)
     {
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
