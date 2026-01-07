@@ -7,7 +7,6 @@
         <Label x:Name="LabelName" Text="Name" />
         <Label x:Name="LabelBirthDate" Text="BirthDate" />
         <Label x:Name="LabelEmail" Text="Email" />
-        <Label x:Name="LabelPassword" Text="Password" />
         <Label x:Name="LabelCpf" Text="CPF"/>
         <Label x:Name="LabelState" Text="State" />
         <Label x:Name="LabelCity" Text="City" />
