@@ -29,6 +29,8 @@ public static class MauiProgram
         });
 
         builder.Services.AddSingleton<AuthService>();
+        builder.Services.AddSingleton<FarmService>();
+
         var app = builder.Build();
 
         using (var scope = app.Services.CreateScope())
