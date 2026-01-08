@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace GrajaSystemProject.Models.User;
+namespace GranjaSystemProject.Models.Users;
 public class User
 {
     [Key]

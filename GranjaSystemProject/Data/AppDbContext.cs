@@ -1,8 +1,8 @@
-﻿using GrajaSystemProject.Models.User;
+﻿using GranjaSystemProject.Models.User;
 using GranjaSystemProject.Models.Farm;
 using Microsoft.EntityFrameworkCore;
 
-namespace GrajaSystemProject.Data;
+namespace GranjaSystemProject.Data;
 public class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
@@ -10,6 +10,7 @@ public class AppDbContext : DbContext
     }
     public DbSet<User> Users { get; set; }
     public DbSet<Farm> Farms { get; set; }
+    public DbSet<Race> Races { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<User>(entity =>

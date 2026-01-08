@@ -1,4 +1,4 @@
-﻿using GrajaSystemProject.Data;
+﻿using GranjaSystemProject.Data;
 using GranjaSystemProject.Helpers;
 using GranjaSystemProject.Services;
 using Microsoft.EntityFrameworkCore;
@@ -30,14 +30,9 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<AuthService>();
         builder.Services.AddSingleton<FarmService>();
+        builder.Services.AddSingleton<RaceService>();
 
         var app = builder.Build();
-
-        using (var scope = app.Services.CreateScope())
-        {
-            var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-            db.Database.EnsureCreated();
-        }
 
         using (var scope = app.Services.CreateScope())
         {
@@ -53,7 +48,7 @@ public static class MauiProgram
                 const string defaultPassword = "password123";
                 string passwordHash = authService.HashPassword(defaultPassword);
 
-                var defaultUser = new GrajaSystemProject.Models.User.User
+                var defaultUser = new GranjaSystemProject.Models.Users.User
                 {
                     Name = "Admin Teste",
                     Email = "admin@teste.com",
@@ -64,7 +59,7 @@ public static class MauiProgram
                     City = "Crateús",
                     Address = "Rua A",
                     Phone = "(88)9.9999-9999",
-                    Type = GrajaSystemProject.Models.User.UserType.Administrador,
+                    Type = GranjaSystemProject.Models.Users.UserType.Administrador,
                     FailedLoginAttempts = 0
                 };
 

@@ -3,29 +3,30 @@ using GranjaSystemProject.Models.Farm;
 using Microsoft.EntityFrameworkCore;
 
 namespace GranjaSystemProject.Services;
-public class FarmService
+public class RaceService
 {
     private readonly AppDbContext _context;
 
-    public FarmService(AppDbContext context)
+    public RaceService(AppDbContext context)
     {
         _context = context;
     }
-    public async Task<(bool Sucess, string Message)> CreateFarmAsync(Farm farm)
+
+    public async Task<(bool Sucess, string Message)> RegisterRaceAsync(Race race)
     {
         try
         {
-            var existsFarm = await _context.Farms.AnyAsync(f => f.OwnerId == farm.OwnerId);
+            var existsRace = await _context.Races.AnyAsync(r => r.Name.ToLower() == race.Name.ToLower());
 
-            if (existsFarm)
+            if (existsRace)
             {
-                return (false, "Você já possui uma Granja cadastrada.");
+                return (false, "Essa raça já foi cadastrada.");
             }
 
-            _context.Farms.Add(farm);
+            _context.Races.Add(race);
             await _context.SaveChangesAsync();
-            return (true, "Granja cadastrada com sucesso");
-        } 
+            return (true, "Raça cadastrada com sucesso!");
+        }
         catch (Exception ex)
         {
             return (false, $"Erro ao salvar: {ex.Message}");

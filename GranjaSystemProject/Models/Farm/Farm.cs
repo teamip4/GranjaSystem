@@ -1,5 +1,5 @@
-﻿using GrajaSystemProject.Models.User;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using GranjaSystemProject.Models.Users;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GranjaSystemProject.Models.Farm;
