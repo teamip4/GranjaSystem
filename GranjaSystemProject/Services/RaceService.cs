@@ -11,8 +11,7 @@ public class RaceService
     {
         _context = context;
     }
-
-    public async Task<(bool Sucess, string Message)> RegisterRaceAsync(Race race)
+    public async Task<(bool Success, string Message)> RegisterRaceAsync(Race race)
     {
         try
         {
@@ -30,6 +29,17 @@ public class RaceService
         catch (Exception ex)
         {
             return (false, $"Erro ao salvar: {ex.Message}");
+        }
+    }
+    public async Task<List<Race>> GetRacesAsync()
+    {
+        try
+        {
+            return await _context.Races.ToListAsync();
+        }
+        catch (Exception)
+        {
+            return new List<Race>();
         }
     }
 }

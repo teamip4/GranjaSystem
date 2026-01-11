@@ -9,5 +9,7 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
         <Button Text="Perfil" Clicked="OnProfileClicked" />
+        <Button Text="Cadastrar granja" Clicked="OnCreateFarm" />
+        <Button Text="Cadastrar raça" Clicked="OnRegisterRace" />
     </VerticalStackLayout>
 </ContentPage>

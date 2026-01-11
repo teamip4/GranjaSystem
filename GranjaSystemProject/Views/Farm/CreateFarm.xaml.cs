@@ -1,4 +1,4 @@
-using GranjaSystemProject.Models.Farm;
+using GranjaSystemProject.Helpers;
 using GranjaSystemProject.Services;
 
 namespace GranjaSystemProject.Views.Farm;
@@ -7,16 +7,16 @@ public partial class CreateFarm : ContentPage
 {
     private readonly FarmService _farmService;
     private readonly AuthService _authService;
-	public CreateFarm(FarmService farmService, AuthService authService)
-	{
-		InitializeComponent();
-        _farmService = farmService;
-        _authService = authService;
-	}
+    public CreateFarm()
+    {
+        InitializeComponent();
+        _farmService = ServiceProviderHelper.GetService<FarmService>();
+        _authService = ServiceProviderHelper.GetService<AuthService>();
+    }
     private async void OnCreateFarm(object sender, EventArgs e)
     {
-		if (string.IsNullOrWhiteSpace(FarmName.Text))
-		{
+        if (string.IsNullOrWhiteSpace(FarmName.Text))
+        {
             await DisplayAlert("Erro", "Por favor, preencha o nome da Granja.", "OK");
             return;
         }

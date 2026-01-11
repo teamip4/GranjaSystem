@@ -1,4 +1,4 @@
-﻿using GranjaSystemProject.Models.User;
+﻿using GranjaSystemProject.Models.Users;
 using GranjaSystemProject.Models.Farm;
 using Microsoft.EntityFrameworkCore;
 

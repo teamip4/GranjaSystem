@@ -1,4 +1,4 @@
-using GranjaSystemProject.Models.User;
+using GranjaSystemProject.Models.Users;
 using GranjaSystemProject.Helpers;
 using GranjaSystemProject.Services;
 

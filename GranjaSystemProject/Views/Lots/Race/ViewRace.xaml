@@ -4,9 +4,24 @@
              x:Class="GranjaSystemProject.Views.Lots.Race.ViewRace"
              Title="ViewRace">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <RefreshView x:Name="RefreshList" Refreshing="OnRefreshing">
+            <CollectionView x:Name="RacesCollection">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="10,5" Padding="15">
+                            <Label Text="{Binding Name}" 
+                               FontSize="18" 
+                               FontAttributes="Bold" />
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+                <CollectionView.EmptyView>
+                    <Label Text="Nenhuma raça cadastrada." 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" />
+                </CollectionView.EmptyView>
+            </CollectionView>
+        </RefreshView>
     </VerticalStackLayout>
 </ContentPage>

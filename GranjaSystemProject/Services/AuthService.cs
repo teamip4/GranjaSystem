@@ -1,5 +1,5 @@
 ﻿using GranjaSystemProject.Data;
-using GranjaSystemProject.Models.User;
+using GranjaSystemProject.Models.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
