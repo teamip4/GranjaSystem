@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\GranjaSystemProject\Data\AppDbContext.cs" Link="LinkedCode\Data\AppDbContext.cs" />
+    <Compile Include="..\GranjaSystemProject\Models\Farm\Farm.cs" Link="LinkedCode\Models\Farm\Farm.cs" />
+    <Compile Include="..\GranjaSystemProject\Models\Farm\Race.cs" Link="LinkedCode\Models\Farm\Race.cs" />
+    <Compile Include="..\GranjaSystemProject\Models\Users\User.cs" Link="LinkedCode\Models\Users\User.cs" />
+    <Compile Include="..\GranjaSystemProject\Services\AuthService.cs" Link="LinkedCode\Services\AuthService.cs" />
+    <Compile Include="..\GranjaSystemProject\Services\FarmService.cs" Link="LinkedCode\Services\FarmService.cs" />
+    <Compile Include="..\GranjaSystemProject\Services\RaceService.cs" Link="LinkedCode\Services\RaceService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="coverlet.collector" Version="6.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
+    <PackageReference Include="xunit" Version="2.5.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="Xunit" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="LinkedCode\Data\" />
+    <Folder Include="LinkedCode\Models\Farm\" />
+    <Folder Include="LinkedCode\Models\Users\" />
+    <Folder Include="LinkedCode\Services\" />
+  </ItemGroup>
+
+</Project>

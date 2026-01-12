@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GranjaSystemProject.Views.EditUser"
+             Title="EditUser">
+    <VerticalStackLayout>
+        <Label Text="Name" />
+        <Entry x:Name="EntryName" Placeholder="Digite o seu nome" />
+
+        <Label Text="BirthDate" />
+        <DatePicker x:Name="EntryBirthDate"/>
+
+        <Label Text="CPF"/>
+        <Entry x:Name="EntryCpf" Placeholder="Digite o seu CPF" />
+
+        <Label Text="State" />
+        <Entry x:Name="EntryState" Placeholder="Digite o seu estado" />
+
+        <Label Text="City" />
+        <Entry x:Name="EntryCity" Placeholder="Digite a sua cidade" />
+
+        <Label Text="Address" />
+        <Entry x:Name="EntryAddress" Placeholder="Digite o seu endereço" />
+
+        <Label Text="Phone" />
+        <Entry x:Name="EntryPhone" Keyboard="Telephone" Placeholder="Digite o seu telefone" />
+
+        <Button Text="Atualizar" Clicked="OnUpdateClicked" />
+    </VerticalStackLayout>
+</ContentPage>

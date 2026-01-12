@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GranjaSystemProject.Views.RegisterPage"
+             Title="RegisterPage">
+    <VerticalStackLayout>
+        <Label Text="Name" />
+        <Entry x:Name="Name" Placeholder="Digite o seu nome" />
+
+        <Label Text="BirthDate" />
+        <DatePicker x:Name="BirthDate"/>
+
+        <Label Text="Email" />
+        <Entry x:Name="Email" Keyboard="Email" Placeholder="Digite o seu e-mail" />
+
+        <Label Text="Password" />
+        <Entry x:Name="Password" IsPassword="True" Placeholder="Digite a sua senha" />
+
+        <Label Text="PasswordConfirm" />
+        <Entry x:Name="PasswordConfirm" IsPassword="True" Placeholder="Digite novamente a sua senha" />
+
+        <Label Text="CPF"/>
+        <Entry x:Name="Cpf" Placeholder="Digite o seu CPF" />
+
+        <Label Text="State" />
+        <Entry x:Name="State" Placeholder="Digite o seu estado" />
+
+        <Label Text="City" />
+        <Entry x:Name="City" Placeholder="Digite a sua cidade" />
+
+        <Label Text="Address" />
+        <Entry x:Name="Address" Placeholder="Digite o seu endereço" />
+
+        <Label Text="Phone" />
+        <Entry x:Name="Phone" Keyboard="Telephone" Placeholder="Digite o seu telefone" />
+
+        <Button Text="Salvar" Clicked="OnSaveClicked" />
+    </VerticalStackLayout>
+</ContentPage>

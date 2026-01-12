@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GranjaSystemProject.Views.ProfilePage"
+             Title="ProfilePage">
+    <VerticalStackLayout>
+        <Label x:Name="LabelName" Text="Name" />
+        <Label x:Name="LabelBirthDate" Text="BirthDate" />
+        <Label x:Name="LabelEmail" Text="Email" />
+        <Label x:Name="LabelCpf" Text="CPF"/>
+        <Label x:Name="LabelState" Text="State" />
+        <Label x:Name="LabelCity" Text="City" />
+        <Label x:Name="LabelAddress" Text="Address" />
+        <Label x:Name="LabelPhone" Text="Phone" />
+        <Button Text="Editar dados" Clicked="UpdateUser" />
+    </VerticalStackLayout>
+</ContentPage>

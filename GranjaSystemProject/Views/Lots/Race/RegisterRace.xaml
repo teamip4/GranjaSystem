@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GranjaSystemProject.Views.Lots.Race.RegisterRace"
+             Title="RegisterRace">
+    <VerticalStackLayout>
+        <Label Text="Nome" />
+        <Entry x:Name="NameRace" Placeholder="Nome" />
+        <Button Text="Salvar" Clicked="OnSaveClicked" />
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GranjaSystemProject", "GranjaSystemProject\GranjaSystemProject.csproj", "{2ED5F7EE-DD55-481C-A70C-FEF5309561FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GranjaSystemProject.Tests", "GranjaSystemProject.Tests\GranjaSystemProject.Tests.csproj", "{BB6E11B0-3178-4B05-B33E-FEFC72D70C27}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2ED5F7EE-DD55-481C-A70C-FEF5309561FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ED5F7EE-DD55-481C-A70C-FEF5309561FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ED5F7EE-DD55-481C-A70C-FEF5309561FA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{2ED5F7EE-DD55-481C-A70C-FEF5309561FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ED5F7EE-DD55-481C-A70C-FEF5309561FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ED5F7EE-DD55-481C-A70C-FEF5309561FA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{BB6E11B0-3178-4B05-B33E-FEFC72D70C27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB6E11B0-3178-4B05-B33E-FEFC72D70C27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB6E11B0-3178-4B05-B33E-FEFC72D70C27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB6E11B0-3178-4B05-B33E-FEFC72D70C27}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DE46122B-9EB9-4913-8A61-44729709F6DE}
+	EndGlobalSection
+EndGlobal
