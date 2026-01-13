@@ -22,6 +22,12 @@ public class UserBuilder
         return this;
     }
 
+    public UserBuilder WithBirthDate(DateTime birthDate)
+    {
+        _user.BirthDate = birthDate;
+        return this;
+    }
+
     public UserBuilder WithEmail(string email)
     {
         _user.Email = email;
@@ -34,21 +40,15 @@ public class UserBuilder
         return this;
     }
 
+    public UserBuilder WithHashedPassword(string password)
+    {
+        _user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(password);
+        return this;
+    }
+
     public UserBuilder WithType(UserType type)
     {
         _user.Type = type;
-        return this;
-    }
-
-    public UserBuilder WithBirthDate(DateTime birthDate)
-    {
-        _user.BirthDate = birthDate;
-        return this;
-    }
-
-    public UserBuilder WithHashedPassword()
-    {
-        _user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(_user.PasswordHash);
         return this;
     }
 

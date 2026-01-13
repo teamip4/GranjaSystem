@@ -6,4 +6,5 @@ public static class TestConstants
     public const string InvalidEmail = "email_invalido";
 
     public const string ValidPassword = "123456";
+    public const string InvalidPassword = "_";
 }
