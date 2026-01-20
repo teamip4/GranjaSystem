@@ -16,6 +16,12 @@ public class UserBuilder
         _user.Type = UserType.Administrador;
     }
 
+    public UserBuilder WithId(int id)
+    {
+        _user.Id = id;
+        return this;
+    }
+
     public UserBuilder WithName(string name)
     {
         _user.Name = name;

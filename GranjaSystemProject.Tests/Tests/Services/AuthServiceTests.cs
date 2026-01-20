@@ -4,6 +4,8 @@ using GranjaSystemProject.Tests.Tests.TestInfrastructure;
 using GranjaSystemProject.Tests.Tests.TestInfrastructure.Builders;
 using GranjaSystemProject.Tests.Tests.TestInfrastructure.Constants;
 using Microsoft.EntityFrameworkCore;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace GranjaSystemProject.Tests.Tests.Services;
 
@@ -193,5 +195,107 @@ public class AuthServiceTests
         Assert.NotNull(result);
         Assert.Equal(0, result.FailedLoginAttempts);
         Assert.Null(result.LockoutEnd);
+    }
+
+    [Fact]
+    public async Task UpdateUserAsync_ShouldUpdateUser_WhenUserExists()
+    {
+        var context = DbContextFactory.Create();
+        var authService = new AuthService(context);
+
+        var existingUser = new UserBuilder()
+            .WithEmail(TestConstants.ValidEmail)
+            .WithPassword(TestConstants.ValidPassword)
+            .Build();
+
+        await AuthServiceFactory.SeedUserAsync(context, existingUser);
+
+        existingUser.Name = "Nome Atualizado";
+
+        var (success, _) = await authService.UpdateUserAsync(existingUser);
+
+        var updatedUser = await context.Users.FirstAsync();
+
+        Assert.True(success);
+        Assert.Equal("Nome Atualizado", updatedUser.Name);
+        Assert.Equal(updatedUser, authService.CurrentUser);
+    }
+
+    [Fact]
+    public async Task UpdateUserAsync_ShouldFail_WhenUserDoesNotExist()
+    {
+        var context = DbContextFactory.Create();
+        var authService = new AuthService(context);
+
+        var nonExistentUser = new UserBuilder()
+            .WithId(999) // ID inexistente
+            .Build();
+
+        var (success, _) = await authService.UpdateUserAsync(nonExistentUser);
+
+        Assert.False(success);
+    }
+
+    [Fact]
+    public async Task UpdateUserAsync_ShouldFail_WhenEmailAlreadyExists()
+    {
+        var context = DbContextFactory.Create();
+        var authService = new AuthService(context);
+
+        var user1 = new UserBuilder()
+            .WithEmail("user1@email.com")
+            .Build();
+
+        var user2 = new UserBuilder()
+            .WithEmail("user2@email.com")
+            .Build();
+
+        await AuthServiceFactory.SeedUserAsync(context, user1);
+        await AuthServiceFactory.SeedUserAsync(context, user2);
+
+        user2.Email = user1.Email; // email duplicado
+
+        var (success, _) = await authService.UpdateUserAsync(user2);
+
+        Assert.False(success);
+    }
+
+    [Fact]
+    public void GenerateJwtToken_ShouldReturnValidToken()
+    {
+        var context = DbContextFactory.Create();
+        var authService = new AuthService(context);
+
+        var user = new UserBuilder()
+            .WithId(1)
+            .WithType(UserType.Administrador)
+            .Build();
+
+        var token = authService.GenerateJwtToken(user);
+
+        Assert.False(string.IsNullOrWhiteSpace(token));
+    }
+
+    [Fact]
+    public void GenerateJwtToken_ShouldContainCorrectClaims()
+    {
+        var context = DbContextFactory.Create();
+        var authService = new AuthService(context);
+
+        var user = new UserBuilder()
+            .WithId(42)
+            .WithType(UserType.Farmer)
+            .Build();
+
+        var token = authService.GenerateJwtToken(user);
+
+        var handler = new JwtSecurityTokenHandler();
+        var jwt = handler.ReadJwtToken(token);
+
+        var userIdClaim = jwt.Claims.First(c => c.Type == "nameid");
+        var roleClaim = jwt.Claims.First(c => c.Type == "role");
+
+        Assert.Equal("42", userIdClaim.Value);
+        Assert.Equal(UserType.Farmer.ToString(), roleClaim.Value);
     }
 }
