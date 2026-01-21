@@ -5,7 +5,6 @@ using GranjaSystemProject.Tests.Tests.TestInfrastructure.Builders;
 using GranjaSystemProject.Tests.Tests.TestInfrastructure.Constants;
 using Microsoft.EntityFrameworkCore;
 using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 
 namespace GranjaSystemProject.Tests.Tests.Services;
 
@@ -64,7 +63,7 @@ public class AuthServiceTests
             .WithPassword(TestConstants.ValidPassword)
             .Build();
 
-        await AuthServiceFactory.SeedUserAsync(context, existingUser); // Adiciona diretamente no contexto.
+        await AuthServiceFactory.SeedUserAsync(context, existingUser); // Adiciona diretamente no contexto
 
         var user = new UserBuilder()
             .WithEmail(TestConstants.ValidEmail) // Mesmo email
@@ -292,6 +291,7 @@ public class AuthServiceTests
         var handler = new JwtSecurityTokenHandler();
         var jwt = handler.ReadJwtToken(token);
 
+        // Verifica se os campos realmente estão presentes no token
         var userIdClaim = jwt.Claims.First(c => c.Type == "nameid");
         var roleClaim = jwt.Claims.First(c => c.Type == "role");
 
